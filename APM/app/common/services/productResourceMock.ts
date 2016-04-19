@@ -1,3 +1,4 @@
+
 module app.common {
 
     var mockResource = angular

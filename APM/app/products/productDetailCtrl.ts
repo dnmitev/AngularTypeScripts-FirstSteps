@@ -3,7 +3,7 @@ module app.productDetail {
         title: string;
         product: app.domain.IProduct;
     }
-    
+
     interface IProductParams extends ng.route.IRouteParamsService {
         productId: number;
     }
@@ -11,22 +11,22 @@ module app.productDetail {
     class ProductDetailCtrl implements IProductDetailModel {
         title: string;
         product: app.domain.IProduct;
-        
+
         static $inject = ["$routeParams", "dataAccessService"];
         constructor(
             private $routeParams: IProductParams,
             private dataAccessService: app.common.DataAccessService) {
             this.title = "Product Detail";
-            
+
             var id = $routeParams.productId;
             var productResponse = dataAccessService.getProductResource();
-            productResponse.get({productId: id},
+            productResponse.get({ productId: id },
                 (data: app.domain.IProduct) => {
-                this.product = data;
-            })
+                    this.product = data;
+                })
         }
     }
-   
+
     angular
         .module("productManagement")
         .controller("ProductDetailCtrl", ProductDetailCtrl);
