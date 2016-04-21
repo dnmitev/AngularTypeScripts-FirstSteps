@@ -3,26 +3,50 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>DevGit</title>
+    <title>Dev Git</title>
+    <link rel="stylesheet" href="src/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="src/Materialize/dist/css/materialize.css">
 </head>
 
-<body>
+<body ng-app="devGit">
     <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
+        <div class="nav-wrapper #37474f blue-grey darken-3">
+            <a href="#/" class="brand-logo">
+                <i class="fa fa-github-square" aria-hidden="true"></i>
+            </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">JavaScript</a></li>
+                <li>
+                    <a ui-sref="devs">Devs</a>
+                </li>
+                <li>
+                    <a ui-sref="issues">Issues</a>
+                </li>
             </ul>
         </div>
     </nav>
 
+    <div ui-view class="container">
+        <ng-view></ng-view>
+    </div>
+
     <script src="src/jquery/dist/jquery.js"></script>
     <script src="src/Materialize/dist/js/materialize.js"></script>
     <script src="src/angular/angular.js"></script>
+    <script src="src/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="src/angular-route/angular-route.js"></script>
+
+    <script src="app/app.js"></script>
+
+    <script src="app/common/config/config.js"></script>
+
+    <script src="app/domain/user.js"></script>
+    <script src="app/domain/issue.js"></script>
+
+    <script src="app/common/services/git-svc.js"></script>
+
+    <script src="app/home/home-ctrl.js"></script>
+    <script src="app/devs/devs-ctrl.js"></script>
+    <script src="app/issues/issues-ctrl.js"></script>
 
 </body>
 
